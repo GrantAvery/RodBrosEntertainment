@@ -1,0 +1,93 @@
+﻿@model RodBrosEntertainment.Models.Order
+
+@{
+    ViewData["Title"] = "StatusInTransit";
+}
+
+<h1>StatusInTransit</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="StatusInTransit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OrderId" class="control-label"></label>
+                <input asp-for="OrderId" class="form-control", readonly="readonly" />
+                <span asp-validation-for="OrderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control", readonly="readonly" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusId" class="control-label"></label>
+                <input asp-for="StatusId" class="form-control", readonly="readonly" />
+                <span asp-validation-for="StatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderDate" class="control-label"></label>
+                <input asp-for="OrderDate" class="form-control", readonly="readonly" />
+                <span asp-validation-for="OrderDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subtotal" class="control-label"></label>
+                <input asp-for="Subtotal" class="form-control", readonly="readonly" />
+                <span asp-validation-for="Subtotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tax" class="control-label"></label>
+                <input asp-for="Tax" class="form-control", readonly="readonly" />
+                <span asp-validation-for="Tax" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShippingCost" class="control-label"></label>
+                <input asp-for="ShippingCost" class="form-control", readonly="readonly" />
+                <span asp-validation-for="ShippingCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShippingMiles" class="control-label"></label>
+                <input asp-for="ShippingMiles" class="form-control", readonly="readonly" />
+                <span asp-validation-for="ShippingMiles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Street1" class="control-label"></label>
+                <input asp-for="Street1" class="form-control", readonly="readonly" />
+                <span asp-validation-for="Street1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Street2" class="control-label"></label>
+                <input asp-for="Street2" class="form-control", readonly="readonly" />
+                <span asp-validation-for="Street2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control", readonly="readonly" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control", readonly="readonly" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control", readonly="readonly" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+
+            <p>Change status to InTransit?</p>
+
+            <div class="form-group">
+                <input type="submit" value="Update Status" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

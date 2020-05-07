@@ -3,26 +3,47 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RodBrosEntertainment</title>
+    <title>@ViewData["Title"] - Rod Bros Entertainment</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://kit.fontawesome.com/e7c52f0cdc.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RodBrosEntertainment</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/media/RodBrosEntertainmentLogo.jpg" />
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-item btn btn-dark">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item btn btn-dark">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Shop" asp-action="Index">Shop</a>
+                        </li>
+                        <li class="nav-item btn btn-dark">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Connect" asp-action="Index">Connect</a>
+                        </li>
+                        <li class="nav-item btn btn-dark">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Contact" asp-action="Index">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- TODO: add tablet breakpoints and styles so that these menu buttons don't go off the right side of the page -->
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1 menu-right">
+                        <li class="nav-item btn btn-dark">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Shop" asp-action="Cart">Cart</a>
+                        </li>
+                        <li class="nav-item btn btn-dark">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Index">Account</a>
                         </li>
                     </ul>
                 </div>
@@ -35,9 +56,20 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer">
         <div class="container">
-            &copy; 2020 - RodBrosEntertainment - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - Rod Bros Entertainment - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <span class="footer-right">
+                <a href="https://www.facebook.com/Rod-Bros-Entertainment-110192720550900" target="_blank"><img src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512" width="25" height="25" /></a>
+
+                <a href="https://www.youtube.com/channel/UCgrjRFfOHtuMOH6OQNcP5_g" target="_blank"><img src="https://i1.wp.com/www.vectorico.com/wp-content/uploads/2018/02/youtube-red-squircle.png?resize=300%2C300" width="25" height="25" /></a>
+                <a href="https://www.patreon.com/user?u=30393016" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Patreon_logo.svg/1024px-Patreon_logo.svg.png" width="25" height="25" /></a>
+                <!-- If the company ever gets a Twitter:
+                    <a href="TODO"><img src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/c8/Twitter_Bird.svg/1200px-Twitter_Bird.svg.png" width="25" height="25" /></a>-->
+                
+               <!-- Another way to get icons that I tried before just using straight images: FontAwesome.io
+                   <i class="fab fa-twitter"></i> -->
+            </span>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

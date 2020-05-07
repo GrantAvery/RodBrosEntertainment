@@ -1,0 +1,33 @@
+@model List<Product>
+@{
+    ViewData["Title"] = "Shop";
+}
+
+<div class="text-center">
+    <h1>Products</h1>
+    <!-- TODO filter/sort options -->
+    @if (Model != null)
+    {
+    <div class="container list-container">
+        @foreach (Product product in Model)
+        {
+        <div class="container-item">
+            <h3>
+                <a asp-controller="Shop" asp-action="Product" asp-route-id="@product.ProductId">@product.Name</a>
+            </h3>
+            <div>
+                <img src="@product.ImageUrl" class="product-image" />
+            </div>
+            <div class="btn btn-primary container-btn">
+                <a asp-controller="Shop" asp-action="AddToCart" asp-route-id="@product.ProductId">Add to Cart</a>
+            </div>
+        </div>
+        }
+    </div>
+    }
+    else
+    {
+        <div>No products available.</div>
+    }
+
+</div>

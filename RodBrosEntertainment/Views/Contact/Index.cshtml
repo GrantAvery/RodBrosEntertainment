@@ -1,0 +1,38 @@
+@model RodBrosEntertainment.Models.Email
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<h1>Contact Us</h1>
+
+<form asp-action="SendEmail">
+    @Html.AntiForgeryToken()
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(model => model.FromName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.FromName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FromName)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FromEmail, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.FromEmail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FromEmail)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Message, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Message, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Message)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-primary" value="Send" />
+        </div>
+    </div>
+</form>

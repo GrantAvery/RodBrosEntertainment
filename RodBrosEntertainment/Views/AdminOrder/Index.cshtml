@@ -1,0 +1,66 @@
+﻿@model IEnumerable<RodBrosEntertainment.ViewModels.OrderListViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Orders</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subtotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusId)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.OrderId }) |
+                Change status to:
+                @Html.ActionLink("Cart", "StatusCart", new { id = item.OrderId }),
+                @Html.ActionLink("Created", "StatusCreated", new { id = item.OrderId }),
+                @Html.ActionLink("InTransit", "StatusInTransit", new { id = item.OrderId }),
+                @Html.ActionLink("Delivered", "StatusDelivered", new { id = item.OrderId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,84 @@
+@model RodBrosEntertainment.ViewModels.OrderFullViewModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<div class="text-center">
+    @if (Model != null)
+    {
+        <div class="btn btn-primary right">
+            <a asp-controller="Shop" asp-action="CheckOut" asp-route-id="@Model.OrderId">Check Out</a>
+        </div>
+
+        <h1>Shopping Cart</h1>
+        <p>Order @Model.OrderId</p>
+
+        <h2>Products</h2>
+
+        @if (Model.OrderProducts != null && Model.OrderProducts.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model.OrderProducts[0].Product.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model.OrderProducts[0].Quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model.OrderProducts[0].Product.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model.OrderProducts[0].Product.ProductType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model.OrderProducts[0].Product.Active)
+                        </th>
+                        <th>
+                            Edit Options
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (OrderProduct op in Model.OrderProducts)
+                    {
+                        <tr>
+                            <td>
+                                <a asp-controller="Shop" asp-action="Product" asp-route-id="@op.Product.ProductId">@op.Product.Name</a>
+                            </td>
+                            <td>
+                                @op.Quantity
+                            </td>
+                            <td>
+                                $@op.Product.Price
+                            </td>
+                            <td>
+                                @op.Product.ProductType
+                            </td>
+                            <td>
+                                @op.Product.Active
+                            </td>
+                            <td>
+                                <a asp-controller="Shop" asp-action="DeleteFromCart" asp-route-id="@op.OrderProductId">Remove from Cart</a>
+                            </td>
+                            <!-- TODO: what about changing the quantity? -->
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div>
+                No products selected in your cart.
+                <a asp-controller="Shop" asp-action="Index">Browse our store here</a>.
+            </div>
+        }
+
+    }
+    else
+    {
+        <div>No shopping cart available.</div>
+    }
+</div>

@@ -1,0 +1,97 @@
+﻿@model List<Order>
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<div class="text-center">
+    <h1>Order list</h1>
+    @if (Model != null)
+    {
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model[0].OrderId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model[0].UserId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model[0].StatusId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model[0].OrderDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model[0].Subtotal)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model[0].Tax)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model[0].ShippingCost)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(Model => Model[0].ShippingMiles)
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Order order in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a asp-controller="Shop" asp-action="Order" asp-route-id="@order.OrderId">Order @order.OrderId</a>
+                            </td>
+                            <td>
+                                @order.UserId
+                            </td>
+                            <td>
+                                @order.StatusId.GetDisplayName()
+                            </td>
+                            <td>
+                                @order.OrderDate.ToShortDateString()
+                            </td>
+                            <td>
+                                $@order.Subtotal
+                            </td>
+                            <td>
+                                $@order.Tax
+                            </td>
+                            <td>
+                                $@order.ShippingCost
+                            </td>
+                            <td>
+                                @order.ShippingMiles
+                            </td>
+                            <td>
+                                <span>@order.Street1 </span>
+                                @if (order.Street2 != null)
+                                {
+                                    <span>@order.Street2 </span>
+                                }
+                                <span>@order.City </span>
+                                <span>@order.State </span>
+                                <span>@order.Country </span>
+                            </td>
+                            <!-- TODO: what about displaying and changing the quantity? -->
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div>No orders found.</div>
+        }
+    }
+    else
+    {
+        <div>No orders available.</div>
+    }
+</div>

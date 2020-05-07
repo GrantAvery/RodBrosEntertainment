@@ -1,8 +1,42 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to RodBrosEntertainment</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <h1 style="text-align:center">Rod Bros Entertainment</h1>
+    <br />
+    <div>
+        <img src="~/media/RodBrosEntertainmentLogo.jpg" class="home-logo" />
+        <p style="position:relative">Welcome to the website of Rod Bros Entertainment! This is just placeholder text, someone with a marketing degree will have to provider more compelling copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br />Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <!--Section for new/featured products-->
+    <div class="left">
+
+        @if (Model != null)
+        {
+            <h2>Featured Products</h2>
+            <p>Take a look at some of our featured products!</p>
+
+            <div class="container list-container">
+                @foreach (Product product in Model)
+                {
+                    <div class="container-item">
+                        <a href="/Shop/Product/@product.ProductId"><img src="@product.ImageUrl" class="home-product-image"/></a>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+        <div>No products available.</div>
+        }
+    </div>
+
+    <div class="right">
+        <h2>Recent Podcast</h2>
+        <p>Here's the latest episode of our podcast!</p>
+        <iframe width="420" height="315" src="https://youtube.com/embed/m2tQvjMY_Rs"></iframe>
+    </div>
 </div>
