@@ -1,22 +1,27 @@
 # RodBrosEntertainment
 
+Davenport University CIS capstone project, built with Grace Rodriguez, Ryan Wooten, and Austin Kamp.
+
 ## Site Info
 
 [![Build status](https://dev.azure.com/TECH497-Team3/RodBrosEntertainment/_apis/build/status/rodbrosentertainment%20-%20CI)](https://dev.azure.com/TECH497-Team3/RodBrosEntertainment/_build/latest?definitionId=1)
 
 .NET Core MVC project built in Visual Studio
 
+Used to be deployed to: https://rodbrosentertainment.azurewebsites.net/
+
+## Architecture
+
+ERD (out of date):
+![ERD](./ERD.png "ERD")
+
+## Pipeline
+
 Azure DevOps: https://dev.azure.com/TECH497-Team3/RodBrosEntertainment
 
 Azure Portal: https://portal.azure.com/
 
 CLI for managing Azure stuff: https://shell.azure.com/
-
-Deployed to: https://rodbrosentertainment.azurewebsites.net/
-
-ERD:
-![ERD](./ERD.png "ERD")
-
 
 ## How To
 
